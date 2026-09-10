@@ -709,52 +709,85 @@ document.getElementById('scroll-cue').addEventListener('click', ()=>{
 })();
 
 /* ---------- 13. MUSIC TOGGLE (Ambient romantic tone) ---------- */
+// (function initMusic(){
+//   const btn = document.getElementById('music-toggle');
+//   if(!btn) return;
+
+//   let audioCtx = null;
+//   let isPlaying = false;
+//   let oscillators = [];
+
+//   function createRomanticAmbient(){
+//     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+//     const masterGain = audioCtx.createGain();
+//     masterGain.gain.value = 0.25; // very soft
+//     masterGain.connect(audioCtx.destination);
+
+//     // Soft chord — C major 7
+//     const freqs = [261.63, 329.63, 392.00, 493.88];
+//     freqs.forEach(freq =>{
+//       const osc = audioCtx.createOscillator();
+//       osc.type = 'sine';
+//       osc.frequency.value = freq;
+
+//       const gain = audioCtx.createGain();
+//       gain.gain.value = 0.01;
+//       gain.gain.linearRampToValueAtTime(0.015, audioCtx.currentTime + 2);
+
+//       osc.connect(gain);
+//       gain.connect(masterGain);
+//       osc.start();
+//       oscillators.push({osc, gain});
+//     });
+//   }
+
+//   btn.addEventListener('click', ()=>{
+//     if(!isPlaying){
+//       createRomanticAmbient();
+//       isPlaying = true;
+//       btn.classList.add('playing');
+//       btn.textContent = '🎶';
+//     } else {
+//       oscillators.forEach(({osc, gain})=>{
+//         gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.5);
+//         osc.stop(audioCtx.currentTime + 0.6);
+//       });
+//       oscillators = [];
+//       audioCtx.close();
+//       audioCtx = null;
+//       isPlaying = false;
+//       btn.classList.remove('playing');
+//       btn.textContent = '🎵';
+//     }
+//   });
+// })();
+/* ---------- 13. MUSIC TOGGLE (Play romantic song) ---------- */
 (function initMusic(){
   const btn = document.getElementById('music-toggle');
   if(!btn) return;
 
-  let audioCtx = null;
+  let audio = null;
   let isPlaying = false;
-  let oscillators = [];
-
-  function createRomanticAmbient(){
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const masterGain = audioCtx.createGain();
-    masterGain.gain.value = 0.25; // very soft
-    masterGain.connect(audioCtx.destination);
-
-    // Soft chord — C major 7
-    const freqs = [261.63, 329.63, 392.00, 493.88];
-    freqs.forEach(freq =>{
-      const osc = audioCtx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.value = freq;
-
-      const gain = audioCtx.createGain();
-      gain.gain.value = 0.01;
-      gain.gain.linearRampToValueAtTime(0.015, audioCtx.currentTime + 2);
-
-      osc.connect(gain);
-      gain.connect(masterGain);
-      osc.start();
-      oscillators.push({osc, gain});
-    });
-  }
 
   btn.addEventListener('click', ()=>{
     if(!isPlaying){
-      createRomanticAmbient();
+      // Create audio element
+      audio = new Audio();
+      audio.src = 'assets/romantic-song.m4a'; // Replace with your song file
+      audio.volume = 0.5; // 50% volume
+      audio.loop = true; // Loop the song
+      audio.play().catch(err => {
+        console.warn('Audio play failed:', err);
+      });
+      
       isPlaying = true;
       btn.classList.add('playing');
       btn.textContent = '🎶';
     } else {
-      oscillators.forEach(({osc, gain})=>{
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.5);
-        osc.stop(audioCtx.currentTime + 0.6);
-      });
-      oscillators = [];
-      audioCtx.close();
-      audioCtx = null;
+      if(audio){
+        audio.pause();
+        audio.currentTime = 0;
+      }
       isPlaying = false;
       btn.classList.remove('playing');
       btn.textContent = '🎵';
