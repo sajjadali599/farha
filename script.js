@@ -150,8 +150,8 @@ function loadConfig(){
 }
 
 function applyConfig(cfg){
-  const name = cfg.name && cfg.name.trim() ? cfg.name.trim() : 'SIMMI';
-  const signature = cfg.signature && cfg.signature.trim() ? cfg.signature.trim() : 'Ayushkr Pandey';
+  const name = cfg.name && cfg.name.trim() ? cfg.name.trim() : 'Farhana';
+  const signature = cfg.signature && cfg.signature.trim() ? cfg.signature.trim() : 'Sajjad';
 
   document.getElementById('hero-name').textContent = name;
   document.getElementById('letter-name').textContent = name;
@@ -272,18 +272,18 @@ document.getElementById('scroll-cue').addEventListener('click', ()=>{
 
 /* ---------- 7. FLIP CARDS (More romantic reasons) ---------- */
 (function initCards(){
-  const reasons = [
-    { emoji:'😊', text:"The way your smile lights up my entire universe, every single time." },
-    { emoji:'💭', text:"How you remember the tiniest details I mention only once — you really listen." },
-    { emoji:'🤗', text:"Your patience on my worst, most stubborn days. You love me through it all." },
-    { emoji:'✨', text:"The way you make even the most ordinary moments feel like a fairytale." },
-    { emoji:'💪', text:"Your honesty, even when the truth is hard. That's real love." },
-    { emoji:'📣', text:"How you cheer for me louder than anyone else. My biggest supporter." },
-    { emoji:'🎵', text:"The comfort of your voice — it's my favorite melody." },
-    { emoji:'💕', text:"Your kindness toward everyone, even strangers. Your heart is pure gold." },
-    { emoji:'🏠', text:"How safe and completely myself I feel around you. You're my home." },
-    { emoji:'♾️', text:"Simply, all of you — today, tomorrow, and every day after. I'm yours." }
-  ];
+      const reasons = [
+        { emoji:'😊', text:"💫 The way your smile lights up my entire universe, every single time. You make even the quietest moments feel magical ✨" },
+        { emoji:'💭', text:"💛 I love how, when I’m upset, you stay with me instead of walking away. When I get angry, you listen, understand, and hold my heart with so much patience 🤍" },
+        { emoji:'🤗', text:"🫶 And even when things get really hard between us, you never stop trying to fix what we have. You never make me feel like I’m alone in it, and that means everything to me 💞" },
+        { emoji:'✨', text:"🌙 The way you make even the most ordinary moments feel like a fairytale. A simple day with you becomes something beautiful and unforgettable 🌸" },
+        { emoji:'💪', text:"📱 And of course, I love how you always want to text me, call me, and be a part of my day. Your love makes my life feel fuller, warmer, and brighter ❤️" },
+        { emoji:'📣', text:"🎉 How you cheer for me louder than anyone else. My biggest supporter, my safe place, and my favorite person to celebrate with 💖" },
+        { emoji:'🎵', text:"🎧 The comfort I feel when I hear your voice, especially after a difficult day — it’s my favorite melody, my calm, my home 🫠💕" },
+        { emoji:'💕', text:"🌍 Your kindness toward everyone, and especially the way you care for your loved ones. Your heart is so pure, so golden, and so beautiful 💛" },
+        { emoji:'🏠', text:"🏡 How safe and completely myself I feel around you. You are my home, my peace, and my favorite person in the whole world 🫶" },
+        { emoji:'♾️', text:"💌 I love all of this about you — all the little things, all the effort, and most of all, the way you choose us even when it isn’t easy. From today, tomorrow, and every day after, I’m yours forever 🩷💍" }
+      ];
   const grid = document.getElementById('cards-grid');
   reasons.forEach((item, i)=>{
     const card = document.createElement('div');
