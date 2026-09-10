@@ -773,7 +773,7 @@ document.getElementById('scroll-cue').addEventListener('click', ()=>{
     if(!isPlaying){
       // Create audio element
       audio = new Audio();
-      audio.src = 'assets/romantic-song.m4a'; // Replace with your song file
+      audio.src = 'assets/romantic-song.mp3'; // Replace with your song file
       audio.volume = 0.5; // 50% volume
       audio.loop = true; // Loop the song
       audio.play().catch(err => {
