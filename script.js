@@ -720,7 +720,7 @@ document.getElementById('scroll-cue').addEventListener('click', ()=>{
   function createRomanticAmbient(){
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const masterGain = audioCtx.createGain();
-    masterGain.gain.value = 0.04; // very soft
+    masterGain.gain.value = 0.25; // very soft
     masterGain.connect(audioCtx.destination);
 
     // Soft chord — C major 7
