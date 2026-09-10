@@ -306,12 +306,12 @@ document.getElementById('scroll-cue').addEventListener('click', ()=>{
 (function initCarousel(){
   const stage = document.getElementById('carousel-stage');
   const portraits = [
-    { src:'assets/cute-girl-1.svg', caption:'Her beautiful smile 💕' },
-    { src:'assets/cute-girl-2.svg', caption:'My little sunshine ☀️' },
-    { src:'assets/cute-girl-3.svg', caption:'Sweetest energy ever ✨' },
-    { src:'assets/cute-girl-4.svg', caption:'Beautifully you 🌹' },
-    { src:'assets/cute-girl-5.svg', caption:'My happy place 🏠' },
-    { src:'assets/cute-girl-6.svg', caption:'Always adorable 💗' }
+    { src:'assets/cute-girl-1.jpeg', caption:'Her beautiful smile 💕' },
+    { src:'assets/cute-girl-2.jpeg', caption:'My little sunshine ☀️' },
+    { src:'assets/cute-girl-3.jpeg', caption:'Sweetest energy ever ✨' },
+    { src:'assets/cute-girl-4.jpeg', caption:'Beautifully you 🌹' },
+    { src:'assets/cute-girl-5.jpeg', caption:'My happy place 🏠' },
+    { src:'assets/cute-girl-6.jpeg', caption:'Always adorable 💗' }
   ];
   const N = portraits.length;
   const items = [];
